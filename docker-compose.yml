@@ -1,0 +1,47 @@
+version: “3.8”
+volumes:
+  mysql-data:
+
+
+services:
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    ports:
+      - 8008:80
+    volumes:
+      - ./back:/usr/share/nginx/html/back
+      - ./front/build:/usr/share/nginx/html/front
+      - ./nginx/Docker/default.conf:/etc/nginx/conf.d/default.conf/
+    working_dir: /usr/share/nginx/html
+    depends_on:
+      - back
+      - front
+
+  back:
+    container_name: back
+    build: ./back
+    volumes:
+      - ./back:/var/www/html
+    working_dir: /var/www/html
+  
+  front:
+    container_name: front
+    build: ./front
+    volumes:
+      - ./front:/app/front
+    ports:
+      - 4000:3000
+
+  db:
+    container_name: db
+    build: ./db
+    ports:
+      - 3306:3306
+    platform: linux/x86_64
+    environment:
+      MYSQL_USER: my_user
+      MYSQL_PASSWORD: 12341234
+      MYSQL_ROOT_PASSWORD: root1234
+    volumes:
+       - mysql-data:/var/lib/mysql
