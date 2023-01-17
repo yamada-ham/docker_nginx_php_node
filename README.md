@@ -16,14 +16,14 @@ docker-compose up -d
 docker-compose exec front bash
 
 # Reactプロジェクト作成
-npx create-react-app /var/wwww/html/app
+npx create-react-app /var/www/html/app
 
 # プロジェクトの中身を移動
-mv -if /var/wwww/htmlapp/* /var/wwww/html/
-mv -if /var/wwww/html/.[^\.]* /var/wwww/html/
+mv -if /var/www/html/app/* /var/www/html/
+mv -if /var/www/html/.[^\.]* /var/www/html/
 
 # 空になったディレクトリ削除
-rm -rf /var/wwww/html/app
+rm -rf /var/www/html/app
 
 # React Build
 npm run build
