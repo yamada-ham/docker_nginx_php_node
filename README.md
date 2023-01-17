@@ -20,7 +20,7 @@ npx create-react-app /var/www/html/app
 
 # プロジェクトの中身を移動
 mv -if /var/www/html/app/* /var/www/html/
-mv -if /var/www/html/.[^\.]* /var/www/html/
+mv -if /var/www/html/app/.[^\.]* /var/www/html/
 
 # 空になったディレクトリ削除
 rm -rf /var/www/html/app
