@@ -60,7 +60,7 @@ http://localhost:xxxx/
 ```
 
 
-## -- 本番用 --
+## -- 本番デプロイ用(ローカルでの開発時は利用しない) --
 docker-compose-prod.yml  
 Dockerfile.prod
 ```
