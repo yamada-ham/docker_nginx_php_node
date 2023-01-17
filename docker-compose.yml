@@ -24,14 +24,17 @@ services:
     volumes:
       - ./back:/var/www/html
     working_dir: /var/www/html
+    tty: true
   
   front:
     container_name: front
     build: ./front
     volumes:
-      - ./front:/app/front
+      - ./front:/var/www/html
     ports:
-      - 4000:3000
+      - 300:3000
+    working_dir: /var/www/html
+    tty: true
 
   db:
     container_name: db
@@ -45,3 +48,4 @@ services:
       MYSQL_ROOT_PASSWORD: root1234
     volumes:
        - mysql-data:/var/lib/mysql
+    tty: true

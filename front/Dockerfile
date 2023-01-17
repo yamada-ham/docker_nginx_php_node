@@ -1,6 +1,8 @@
-FROM node:16
+FROM ubuntu:22.04
 
-WORKDIR /app/front
+RUN apt-get update -y
 
-EXPOSE 3000
-CMD ["npm", "start"]
+RUN apt-get install -y curl vim lsof
+
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs
