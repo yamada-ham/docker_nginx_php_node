@@ -1,19 +1,19 @@
 back/*
 !back/Dockerfile
 !back/Dockerfile.prod
-!db/Docker
+!back/docker_data
 
 db/*
 !db/Dockerfile
 !db/Dockerfile.prod
-!db/Docker
+!db/docker_data
 
 front/*
 !front/Dockerfile
 !front/Dockerfile.prod
-!front/Docker
+!front/docker_data
 
 nginx/*
 !nginx/Dockerfile
 !nginx/Dockerfile.prod
-!nginx/Docker
+!nginx/docker_data
