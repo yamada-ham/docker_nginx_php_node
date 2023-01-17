@@ -6,11 +6,11 @@ volumes:
 services:
   nginx:
     container_name: nginx
-    build:
+    build: 
       context: ./nginx
       dockerfile: Dockerfile.prod
     ports:
-      - 8008:80
+      - 800:80
     volumes:
       - ./back:/usr/share/nginx/html/back
       - ./front/build:/usr/share/nginx/html/front
@@ -28,20 +28,23 @@ services:
     volumes:
       - ./back:/var/www/html
     working_dir: /var/www/html
-
+    tty: true
+  
   front:
     container_name: front
-    build: 
+    build:
       context: ./front
       dockerfile: Dockerfile.prod
     volumes:
-      - ./front:/app/front
+      - ./front:/var/www/html
     ports:
-      - 4000:3000
+      - 300:3000
+    working_dir: /var/www/html
+    tty: true
 
   db:
     container_name: db
-    build: 
+    build:
       context: ./db
       dockerfile: Dockerfile.prod
     ports:
@@ -52,4 +55,5 @@ services:
       MYSQL_PASSWORD: 12341234
       MYSQL_ROOT_PASSWORD: root1234
     volumes:
-      - mysql-data:/var/lib/mysql
+       - mysql-data:/var/lib/mysql
+    tty: true

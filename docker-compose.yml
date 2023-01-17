@@ -8,7 +8,7 @@ services:
     container_name: nginx
     build: ./nginx
     ports:
-      - 8008:80
+      - 800:80
     volumes:
       - ./back:/usr/share/nginx/html/back
       - ./front/build:/usr/share/nginx/html/front
